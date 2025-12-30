@@ -22,12 +22,6 @@ Facilitar o desenvolvimento de aplicações Java Swing para iniciantes brasileir
 </dependency>
 ```
 
-### Gradle
-
-```groovy
-implementation 'com.alef:swing-alef:1.0.0'
-```
-
 ### Manual (JAR)
 
 1. Baixe o arquivo `swing-alef-1.0.0.jar` da pasta `target/`
