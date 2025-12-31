@@ -53,7 +53,7 @@ public class BaseLoginDialog extends JDialog {
     private String titulo = "Login";
     private String labelUsuario = "Usuário";
     private String labelSenha = "Senha";
-    private String mensagemInicial = "Informe suas credenciais para acessar o sistema";
+    private String mensagemInicial = "Informe suas credenciais para acessar o sistema.";
     private String mensagemErro = "Usuário ou senha inválidos!";
     
     /**
@@ -62,7 +62,6 @@ public class BaseLoginDialog extends JDialog {
      */
     public BaseLoginDialog(Frame owner) {
         this(owner, "Login");
-        inicializar();
     }
     
     /**
@@ -87,6 +86,7 @@ public class BaseLoginDialog extends JDialog {
         // Painel de campos
         JPanel painelCampos = new JPanel();
         painelCampos.setLayout(new BoxLayout(painelCampos, BoxLayout.Y_AXIS));
+        painelCampos.setMinimumSize(new java.awt.Dimension(400, 700));
         
         // Campo usuário
         campoUsuario = new CampoTexto(labelUsuario);
