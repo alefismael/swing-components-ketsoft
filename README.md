@@ -706,7 +706,7 @@ swing-alef/
 
 MIT License
 
-Copyright (c) 2025 Álef Ismael de Souza
+Copyright (c) 2026 Álef Ismael de Souza
 
 ## 👨‍💻 Contribuições
 
