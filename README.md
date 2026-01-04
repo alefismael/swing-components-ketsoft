@@ -4,7 +4,7 @@
 [![Maven](https://img.shields.io/badge/Maven-3.9+-blue.svg)](https://maven.apache.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Uma biblioteca Java Swing completa para facilitar o desenvolvimento de aplicações Desktop com padrão de **CRUD** (Create, Read, Update, Delete).
+Uma biblioteca Java Swing completa para facilitar o desenvolvimento de aplicações Desktop.
 
 ## 🎯 Objetivo
 
@@ -24,7 +24,7 @@ Facilitar o desenvolvimento de aplicações Java Swing para iniciantes brasileir
 
 ### Manual (JAR)
 
-1. Baixe o arquivo `swing-alef-1.0.0.jar` da pasta `target/`
+1. Baixe o arquivo `swing-alef-1.0.0.jar` da pasta `jar/`
 2. Adicione ao classpath do seu projeto
 
 ## 🛠️ Build
@@ -37,7 +37,7 @@ mvn clean compile
 mvn package
 
 # Executar exemplo
-mvn exec:java
+mvn exec:java -Dexec.mainClass="exemplo.ExemploAplicativoCompleto"
 
 # Gerar Javadoc
 mvn javadoc:javadoc
@@ -45,90 +45,127 @@ mvn javadoc:javadoc
 
 ## ✨ Características Principais
 
-- ✅ **Componentes Base**: Sem conflitos com temas como FlatLaf
-- ✅ **BaseFrame**: Frame principal com suporte a navegação por abas
-- ✅ **TabbedDocumentPane**: Sistema de abas fecháveis com indicador de modificações
-- ✅ **TabbedFrame**: Frame com abas de documentos integrado
-- ✅ **BaseLoginDialog**: Diálogo de login reutilizável com autenticação ⭐ NOVO
-- ✅ **PainelCRUD**: Painel pronto para operações de CRUD
-- ✅ **BaseFormularioDialog**: Diálogos modais para entrada de dados
-- ✅ **Campos de Formulário em Português**: CampoTexto, CampoNumero, CampoCep, CampoSenha
-- ✅ **Tabelas com Suporte a CRUD**: BaseTable com métodos úteis
-- ✅ **DialogUtil**: Utilitário para diálogos em português ⭐ NOVO
-- ✅ **ImageUtil**: Utilitário para carregar imagens ⭐ NOVO
+- ✅ **Componentes em Português**: Nomes de classes e métodos em português brasileiro
+- ✅ **JanelaAbas**: Frame principal com suporte a navegação por abas fecháveis
+- ✅ **PainelAbas**: Sistema de abas com indicador de modificações e menus
+- ✅ **PainelCrud**: Painel pronto para operações de CRUD
+- ✅ **Campos de Formulário**: CampoTexto, CampoCep, CampoCpf, CampoMoeda, etc.
+- ✅ **Tabelas Avançadas**: TabelaBase, TabelaEditavel, TabelaPaginada, TabelaAgrupada
+- ✅ **Componentes Visuais**: Gráficos, Dashboard, Calendário, Assistentes
+- ✅ **DialogoUtil**: Utilitário para diálogos em português
+- ✅ **ImagemUtil**: Utilitário para carregar imagens do classpath
 - ✅ **Layout Automático**: GridBagLayout para componentes responsivos
+- ✅ **Compatibilidade FlatLaf**: Temas modernos e ícones SVG
 
 ## 📦 Estrutura de Packages
 
 ```
-base/
-  ├── BaseButton.java           - Botão base
-  ├── BaseLabel.java            - Label base
-  ├── BasePanel.java            - Painel base com GridBag
-  ├── BaseFormPanel.java        - Painel para formulários
-  ├── BaseTextField.java        - Campo de texto base
-  ├── BaseSpinner.java          - Spinner para números
-  ├── BaseFrame.java            - Frame principal com suporte F11
-  ├── BaseLoginDialog.java      - Diálogo de login reutilizável ⭐ NOVO
-  ├── TabbedDocumentPane.java   - Abas fecháveis com indicador
-  ├── TabbedFrame.java          - Frame com abas de documentos
-  ├── BaseCrudPanel.java        - Painel pronto para CRUD
-  ├── BaseFormularioDialog.java - Diálogo para formulários
-  └── BaseNavigationBar.java    - Barra de navegação
+campo/                    # Campos de formulário especializados
+├── CampoTexto.java       # Campo de texto com label
+├── CampoEmail.java       # Campo de e-mail com validação
+├── CampoSenha.java       # Campo com mascaramento
+├── CampoCep.java         # CEP com máscara (99999-999)
+├── CampoCpf.java         # CPF com validação e máscara
+├── CampoCnpj.java        # CNPJ com validação e máscara
+├── CampoMoeda.java       # Campo monetário (R$ 1.234,56)
+├── CampoData.java        # Campo de data (dd/MM/yyyy)
+├── CampoTelefone.java    # Telefone formatado
+├── CampoEndereco.java    # Campo composto para endereço
+├── CampoComboBox.java    # ComboBox com label
+├── CampoCheckBox.java    # CheckBox estilizado
+├── CampoRadioGroup.java  # Grupo de RadioButtons
+├── CampoNumeroSpinner.java # Spinner para números
+├── CampoBusca.java       # Campo de busca com autocomplete
+├── CampoArquivo.java     # Campo para seleção de arquivos
+├── CampoImagem.java      # Campo para upload de imagens
+└── SeletorData.java      # Seletor de data avançado
 
-crud/
-  ├── GenericCrudPanel.java     - Painel CRUD genérico com hooks
-  ├── CrudDialogFactory.java    - Factory para criação de diálogos
-  ├── CrudTableModel.java       - Model genérico para tabelas
-  ├── CrudDialogPresets.java    - Presets para diálogos CRUD
-  ├── CrudPanel.java            - Painel CRUD com interfaces ⭐ NOVO
-  └── api/                      - Interfaces genéricas ⭐ NOVO
-      ├── CrudOperations.java   - Interface para operações CRUD
-      ├── CrudFormFactory.java  - Factory para formulários
-      └── TableRowMapper.java   - Mapeador entidade-tabela
+componente/               # Componentes visuais avançados
+├── PainelTemas.java      # Seletor de temas FlatLaf
+├── Toast.java            # Notificações toast
+├── SobreposicaoCarregamento.java # Overlay de carregamento
+├── PainelDashboard.java  # Dashboard com cartões
+├── CartaoDashboard.java  # Cartão para métricas
+├── CartaoEstatistica.java # Cartão estatístico
+├── CartaoKPI.java        # Cartão KPI
+├── GraficoBarras.java    # Gráfico de barras
+├── GraficoLinhas.java    # Gráfico de linhas
+├── GraficoPizza.java     # Gráfico pizza
+├── PainelCalendario.java # Calendário visual
+├── PainelAssistente.java # Assistente passo-a-passo
+├── EtapaAssistente.java  # Etapa do assistente
+├── IndicadorEtapas.java  # Indicador de progresso
+├── VisualizadorImagem.java # Visualizador de imagens
+├── VisualizadorRelatorio.java # Visualizador de relatórios
+├── RelatorioImprimivel.java # Relatório imprimível
+├── ConstrutorRelatorio.java # Construtor de relatórios
+├── TelaSplash.java       # Tela de splash
+├── BotaoCarregamento.java # Botão com indicador de carregamento
+└── PainelAvatar.java     # Painel com avatar
 
-components/
-  ├── CampoForm.java            - Classe abstrata base para campos
-  ├── CampoTexto.java           - Campo de texto com label
-  ├── CampoEmail.java           - Campo de e-mail com validação visual
-  ├── CampoSenha.java           - Campo com mascaramento de senha
-  ├── CampoNumeroSpinner.java   - Campo para números
-  ├── CampoCep.java             - Campo específico para CEP (99999-999)
-  ├── CampoTelefone.java        - Campo de telefone formatado
-  ├── CampoData.java            - Campo de data (dd/MM/yyyy)
-  ├── CampoEndereco.java        - Campo composto para endereço
-  ├── CampoComboBox.java        - ComboBox com label ⭐ NOVO
-  ├── CampoCheckBox.java        - CheckBox estilizado ⭐ NOVO
-  ├── CampoRadioGroup.java      - Grupo de RadioButtons ⭐ NOVO
-  ├── CampoMoeda.java           - Campo monetário (R$ 1.234,56) ⭐ NOVO
-  ├── CampoCpf.java             - CPF com máscara e validação ⭐ NOVO
-  └── CampoCnpj.java            - CNPJ com máscara e validação ⭐ NOVO
+dialogo/                  # Diálogos e formulários
+├── DialogoLogin.java     # Diálogo de login reutilizável
+├── DialogoFormulario.java # Diálogo modal para formulários
+├── DialogoBusca.java     # Diálogo de busca avançada
+├── DialogoCarregamento.java # Diálogo de progresso
+├── DialogoConfiguracoes.java # Diálogo de configurações
+├── DialogoProgresso.java # Diálogo com barra de progresso
+├── DialogoSobre.java     # Diálogo "Sobre"
+└── DialogoUtil.java      # Utilitários para diálogos
 
-table/
-  └── BaseTable.java            - Tabela base com CRUD
+janela/                   # Janelas principais
+├── JanelaAbas.java       # Frame principal com abas
+└── PainelAbas.java       # Painel de abas fecháveis
 
-ui/
-  ├── LoadingOverlay.java       - Overlay de carregamento
-  ├── DialogUtil.java           - Diálogos em português ⭐ NOVO
-  └── PainelTemas.java          - Seletor de temas FlatLaf
+nucleo/                   # Núcleo da arquitetura
+├── FabricaDialogo.java   # Factory para diálogos
+└── Validavel.java        # Interface para validação
 
-util/
-  ├── ValidationUtil.java       - Utilitários de validação
-  ├── DataBinder.java           - Binding de dados DTO->Campo
-  └── ImageUtil.java            - Carregar imagens do classpath ⭐ NOVO
-  └── DataBinder.java           - Binding de dados DTO->Campo
+painel/                   # Paineis especializados
+└── PainelCrud.java       # Painel CRUD completo
 
-example/
-  ├── ExemploAplicativoClientes.java - Exemplo completo de uso
-  └── ExemploTabbedDocument.java     - Exemplo de abas fecháveis ⭐ NOVO
+tabela/                   # Componentes de tabela
+├── TabelaBase.java       # Tabela base com métodos úteis
+├── TabelaEditavel.java   # Tabela editável inline
+├── TabelaPaginada.java   # Tabela com paginação
+├── TabelaAgrupada.java   # Tabela com agrupamento
+├── TabelaModelo.java     # Modelo de tabela customizável
+└── TabelaScrollPane.java # ScrollPane para tabelas
+
+util/                     # Utilitários transversais
+├── ValidationUtil.java   # Utilitários de validação
+├── DataBinder.java       # Binding DTO->Campo
+├── ImagemUtil.java       # Carregar imagens do classpath
+├── ImageUtil.java        # Alias para ImagemUtil
+├── ExportadorUtil.java   # Utilitários de exportação
+├── GerenciadorAtalhos.java # Gerenciador de atalhos
+├── KeyBindingManager.java # Gerenciador de teclas
+└── TarefaAssincrona.java # Execução assíncrona
+
+dto/                      # Data Transfer Objects
+└── EnderecoDTO.java      # DTO para endereço
+
+exemplo/                  # Exemplos de uso
+├── ExemploAplicativoCompleto.java # Aplicação completa
+├── ExemploCamposFormulario.java   # Campos de formulário
+├── ExemploPainelClientes.java      # CRUD de clientes
+├── ExemploTabelasAvancadas.java    # Tabelas avançadas
+├── ExemploGraficos.java            # Gráficos e dashboard
+├── ExemploAssistente.java          # Assistente passo-a-passo
+├── ExemploDialogos.java            # Diálogos diversos
+├── ExemploAtalhos.java             # Sistema de atalhos
+├── ExemploCalendario.java          # Calendário visual
+├── ExemploMidia.java               # Mídia e imagens
+├── ExemploRelatorio.java           # Relatórios
+├── ExemploCarregamento.java        # Carregamento e progresso
+└── TesteCampos.java                # Teste de campos
 ```
 
-## 🚀 Como Usar
-
-### 1. Aplicação com Abas Fecháveis (TabbedFrame)
+### 1. Aplicação com Abas Fecháveis (JanelaAbas)
 
 ```java
-import base.TabbedFrame;
+import janela.JanelaAbas;
+import componente.PainelTemas;
 import javax.swing.UIManager;
 import javax.swing.SwingUtilities;
 
@@ -142,22 +179,23 @@ public class MinhaAplicacao {
         }
 
         SwingUtilities.invokeLater(() -> {
-            TabbedFrame frame = new TabbedFrame("Minha Aplicação");
+            JanelaAbas janela = new JanelaAbas("Minha Aplicação");
+            PainelAbas painelAbas = janela.getPainelAbas();
 
             // Adicionar abas
-            frame.adicionarAba("Clientes", new ClientePanel());
-            frame.adicionarAba("Produtos", new ProdutoPanel());
+            painelAbas.adicionarAba("Clientes", new ClientePanel());
+            painelAbas.adicionarAba("Produtos", new ProdutoPanel());
 
             // Aba fixa (não fechável)
-            frame.adicionarAbaFixa("Home", null, new HomePanel());
+            painelAbas.adicionarAbaFixa("Home", null, new HomePanel());
 
-            frame.setVisible(true);
+            janela.setVisible(true);
         });
     }
 }
 ```
 
-**Recursos do TabbedDocumentPane:**
+**Recursos do PainelAbas:**
 
 - ✅ Botão X para fechar cada aba
 - ✅ Indicador de modificações (• no título)
@@ -174,15 +212,17 @@ frame.getTabbedPane().marcarModificado(componente, true);
 frame.getTabbedPane().fecharAbaAtual();
 
 // Callback quando aba é fechada
-frame.getTabbedPane().setOnTabClosed(comp -> {
+painelAbas.setOnTabClosed(comp -> {
     System.out.println("Aba fechada: " + comp);
-});Login com BaseLoginDialog ⭐ NOVO
+});
+
+### 2. Login com DialogoLogin
 
 ```java
-import base.BaseLoginDialog;
+import dialogo.DialogoLogin;
 
 // Criar diálogo de login
-BaseLoginDialog login = new BaseLoginDialog(null, "Login do Sistema");
+DialogoLogin login = new DialogoLogin(null, "Login do Sistema");
 
 // Configurar autenticador
 login.setAutenticador((usuario, senha) -> {
@@ -194,14 +234,14 @@ login.setAutenticador((usuario, senha) -> {
 if (login.mostrar()) {
     // Login bem sucedido
     System.out.println("Usuário: " + login.getUsuario());
-    new MainFrame().setVisible(true);
+    new JanelaAbas("Sistema").setVisible(true);
 } else {
     // Login cancelado
     System.exit(0);
 }
 ```
 
-**Recursos do BaseLoginDialog:**
+**Recursos do DialogoLogin:**
 
 - ✅ Campos CampoTexto e CampoSenha integrados
 - ✅ Autenticador configurável via `BiFunction<String, String, Boolean>`
@@ -209,10 +249,8 @@ if (login.mostrar()) {
 - ✅ Mensagens de erro integradas
 - ✅ Labels e textos customizáveis
 
-### 3. Aplicação Básica com BaseFrame
-
 ```java
-import base.BaseFrame;
+import janela.JanelaAbas;
 import javax.swing.UIManager;
 import javax.swing.SwingUtilities;
 
@@ -226,8 +264,8 @@ public class MinhaAplicacao {
         }
 
         SwingUtilities.invokeLater(() -> {
-            BaseFrame frame = new BaseFrame("Minha Aplicação");
-            frame.setVisible(true);
+            JanelaAbas janela = new JanelaAbas("Minha Aplicação");
+            janela.setVisible(true);
         });
     }
 }
@@ -236,13 +274,14 @@ public class MinhaAplicacao {
 ### 4. Criar um Painel CRUD
 
 ```java
-import base.PainelCRUD;
-import base.BaseFrame;
+import painel.PainelCrud;
+import janela.JanelaAbas;
 
 // Dentro da aplicação
-BaseFrame frame = new BaseFrame("Minha App");
+JanelaAbas janela = new JanelaAbas("Minha App");
+PainelAbas painelAbas = janela.getPainelAbas();
 
-PainelCRUD painel = new PainelCRUD("Gestão de Clientes");
+PainelCrud painel = new PainelCrud("Gestão de Clientes");
 painel.definirColunas(new String[]{"ID", "Nome", "Email"});
 
 // Adicionar dados
@@ -253,18 +292,17 @@ painel.adicionarBotao("Novo", () -> criarNovoCliente());
 painel.adicionarBotao("Editar", () -> editarCliente());
 painel.adicionarBotao("Deletar", () -> deletarCliente());
 
-frame.adicionarPainel("Clientes", painel);
-frame.exibirPainel("Clientes");
+painelAbas.adicionarAba("Clientes", painel);
 ```
 
 ### 5. Criar um Formulário com Diálogo
 
 ```java
-import base.BaseFormularioDialog;
-import components.CampoTexto;
-import components.CampoEmail;
+import dialogo.DialogoFormulario;
+import campo.CampoTexto;
+import campo.CampoEmail;
 
-BaseFormularioDialog dialog = new BaseFormularioDialog(frame, "Novo Cliente");
+DialogoFormulario dialog = new DialogoFormulario(janela, "Novo Cliente");
 
 CampoTexto campoNome = new CampoTexto("Nome");
 CampoEmail campoEmail = new CampoEmail("Email");
@@ -285,12 +323,12 @@ dialog.mostrarDialogo(() -> {
 ### 6. Criar um Formulário Customizado
 
 ```java
-import base.BaseFormPanel;
-import components.CampoTexto;
-import components.CampoNumeroSpinner;
-import components.CampoEmail;
+import componente.PainelFormulario; // ou similar, verificar o nome exato
+import campo.CampoTexto;
+import campo.CampoNumeroSpinner;
+import campo.CampoEmail;
 
-BaseFormPanel formulario = new BaseFormPanel();
+PainelFormulario formulario = new PainelFormulario();
 
 CampoTexto campoNome = new CampoTexto("Nome");
 CampoEmail campoEmail = new CampoEmail("Email");
@@ -309,18 +347,16 @@ formulario.adicionarBotao("Salvar", () -> {
 
 ## 📚 Componentes Disponíveis
 
-### BaseFrame
+### JanelaAbas
 
-Frame principal com suporte a múltiplos painéis com CardLayout.
+Frame principal com suporte a abas fecháveis e navegação.
 
 **Métodos principais:**
 
-- `adicionarPainel(String nome, JPanel painel)` - Adiciona um painel
-- `exibirPainel(String nome)` - Exibe um painel específico
-- `removerPainel(String nome)` - Remove um painel
-- `obterPainel(String nome)` - Obtém um painel existente
+- `getPainelAbas()` - Obtém o painel de abas
+- `setVisible(boolean)` - Exibe/oculta a janela
 
-### PainelCRUD
+### PainelCrud
 
 Painel pronto para operações CRUD com tabela e barra de ferramentas.
 
@@ -333,7 +369,7 @@ Painel pronto para operações CRUD com tabela e barra de ferramentas.
 - `obterLinhaAtual()` - Obtém dados da linha selecionada
 - `limparTabela()` - Limpa todas as linhas
 
-### BaseTable
+### TabelaBase
 
 Tabela com métodos úteis para CRUD.
 
@@ -424,6 +460,102 @@ CampoEndereco endereco = new CampoEndereco();
 // Inclui botão "Buscar CEP" para integração futura com API
 ```
 
+### Componentes Visuais Avançados
+
+#### Dashboard e Cartões
+
+```java
+import componente.PainelDashboard;
+import componente.CartaoDashboard;
+import componente.CartaoEstatistica;
+import componente.CartaoKPI;
+
+// Criar dashboard
+PainelDashboard dashboard = new PainelDashboard();
+
+// Adicionar cartões
+dashboard.adicionarCartao(new CartaoDashboard("Clientes", "1,234", "↑ 12%"));
+dashboard.adicionarCartao(new CartaoEstatistica("Vendas", 45678.90));
+dashboard.adicionarCartao(new CartaoKPI("Meta", 85.5, "%"));
+```
+
+#### Gráficos
+
+```java
+import componente.GraficoBarras;
+import componente.GraficoPizza;
+import componente.GraficoLinhas;
+
+// Gráfico de barras
+GraficoBarras grafico = new GraficoBarras();
+grafico.adicionarSerie("Vendas", new double[]{100, 200, 150, 300});
+
+// Gráfico pizza
+GraficoPizza pizza = new GraficoPizza();
+pizza.adicionarFatia("Produto A", 40);
+pizza.adicionarFatia("Produto B", 60);
+```
+
+#### Calendário Visual
+
+```java
+import componente.PainelCalendario;
+
+PainelCalendario calendario = new PainelCalendario();
+calendario.setDataSelecionada(new Date());
+calendario.setOnDataSelecionada(data -> {
+    System.out.println("Data selecionada: " + data);
+});
+```
+
+#### Assistente Passo-a-Passo
+
+```java
+import componente.PainelAssistente;
+import componente.EtapaAssistente;
+
+PainelAssistente assistente = new PainelAssistente();
+
+// Adicionar etapas
+assistente.adicionarEtapa(new EtapaAssistente("Passo 1", painelPasso1));
+assistente.adicionarEtapa(new EtapaAssistente("Passo 2", painelPasso2));
+
+// Navegação
+assistente.proximo();
+assistente.anterior();
+```
+
+#### Relatórios e Impressão
+
+```java
+import componente.RelatorioImprimivel;
+import componente.ConstrutorRelatorio;
+import componente.VisualizadorRelatorio;
+
+// Criar construtor de relatório
+ConstrutorRelatorio construtor = new ConstrutorRelatorio("Relatório de Vendas");
+
+// Adicionar seções
+construtor.adicionarCabecalho("Empresa XYZ", "Relatório Mensal");
+construtor.adicionarSecao("Período", "Janeiro 2025");
+construtor.adicionarTabela("Produtos", new String[]{"Nome", "Quantidade", "Valor"},
+    Arrays.asList(
+        new Object[]{"Produto A", 10, 150.00},
+        new Object[]{"Produto B", 5, 75.00}
+    ));
+construtor.adicionarRodape("Gerado em: " + new Date());
+
+// Criar relatório imprimível
+RelatorioImprimivel relatorio = construtor.construir();
+
+// Visualizar
+VisualizadorRelatorio visualizador = new VisualizadorRelatorio(relatorio);
+visualizador.setVisible(true);
+
+// Ou imprimir diretamente
+relatorio.imprimir();
+```
+
 ### Utilitários
 
 #### DialogUtil ⭐ NOVO
@@ -431,7 +563,7 @@ CampoEndereco endereco = new CampoEndereco();
 Diálogos em português compatíveis com FlatLaf:
 
 ```java
-import ui.DialogUtil;
+import dialogo.DialogoUtil;
 
 // Confirmação simples (Sim/Não)
 if (DialogUtil.confirmar(parent, "Deseja continuar?")) {
@@ -465,19 +597,19 @@ String escolha = DialogUtil.selecionar(parent, "Escolha:", opcoes);
 Utilitário para carregar imagens do classpath:
 
 ```java
-import util.ImageUtil;
+import util.ImagemUtil;
 
 // Carregar imagem do classpath (pasta resources)
-Image imagem = ImageUtil.carregarImagem("/icone.png");
+Image imagem = ImagemUtil.carregarImagem("/icone.png");
 
 // Carregar como ImageIcon
-ImageIcon icone = ImageUtil.carregarIcone("/logo.png");
+ImageIcon icone = ImagemUtil.carregarIcone("/logo.png");
 
 // Redimensionar mantendo proporção
-Image redimensionada = ImageUtil.redimensionarProporcional(imagem, 64, 64);
+Image redimensionada = ImagemUtil.redimensionarProporcional(imagem, 64, 64);
 
 // Verificar se imagem existe
-if (ImageUtil.existe("/foto.jpg")) {
+if (ImagemUtil.existe("/foto.jpg")) {
     // ...
 }
 ```
@@ -499,11 +631,14 @@ UIManager.setLookAndFeel("com.formdev.flatlaf.FlatIntelliJLaf");
 
 ## 📋 Exemplo Completo
 
-Veja `ExemploAplicativoClientes.java` para um exemplo funcional completo de:
+Veja `ExemploAplicativoCompleto.java` para um exemplo funcional completo de:
 
-- Criação de BaseFrame
-- Configuração de PainelCRUD
+- Criação de JanelaAbas
+- Configuração de PainelCrud
 - Diálogos para criar, editar e deletar clientes
+- Integração com Toast e DialogoUtil
+- Sistema de abas fecháveis
+- Dashboard com cartões e gráficos
 
 ## 🔧 Dependência FlatLaf (Recomendado)
 
@@ -533,12 +668,16 @@ swing-alef/
 ├── src/
 │   ├── main/
 │   │   └── java/
-│   │       ├── base/
-│   │       ├── components/
-│   │       ├── crud/
-│   │       ├── table/
-│   │       ├── ui/
-│   │       └── util/
+│   │       ├── campo/        # Campos de formulário
+│   │       ├── componente/   # Componentes visuais
+│   │       ├── dialogo/      # Diálogos e formulários
+│   │       ├── dto/          # Data Transfer Objects
+│   │       ├── exemplo/      # Exemplos de uso
+│   │       ├── janela/       # Janelas principais
+│   │       ├── nucleo/       # Núcleo da arquitetura
+│   │       ├── painel/       # Paineis especializados
+│   │       ├── tabela/       # Componentes de tabela
+│   │       └── util/         # Utilitários
 │   └── test/
 │       └── java/
 └── target/
@@ -550,7 +689,7 @@ swing-alef/
 ### Os componentes parecem desalinhados
 
 - Certifique-se de estar usando GridBagLayout
-- Use `BasePanel` ou `BaseFormPanel` como base
+- Use painéis do pacote `componente` como base
 
 ### Cores estranhas com FlatLaf
 

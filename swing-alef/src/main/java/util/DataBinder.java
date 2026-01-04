@@ -1,7 +1,7 @@
 package util;
 
-import fields.CampoTexto;
-import fields.CampoNumeroSpinner;
+import campo.CampoTexto;
+import campo.CampoNumeroSpinner;
 import java.util.function.Function;
 import java.util.function.BiConsumer;
 
@@ -15,7 +15,7 @@ public final class DataBinder {
     /**
      * Popula um CampoTexto com valor do DTO usando getter.
      */
-    public static <T> void bind(CampoTexto campo, T dto, Function<T, String> getter) {
+    public static <T> void bindTexto(CampoTexto campo, T dto, Function<T, String> getter) {
         if (campo == null || dto == null || getter == null) return;
         campo.setValue(getter.apply(dto));
     }
@@ -23,7 +23,7 @@ public final class DataBinder {
     /**
      * Popula um CampoNumeroSpinner com valor do DTO usando getter.
      */
-    public static <T> void bind(CampoNumeroSpinner campo, T dto, Function<T, Integer> getter) {
+    public static <T> void bindNumero(CampoNumeroSpinner campo, T dto, Function<T, Integer> getter) {
         if (campo == null || dto == null || getter == null) return;
         campo.setValue(getter.apply(dto));
     }
